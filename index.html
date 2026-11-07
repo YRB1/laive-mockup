@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laivestyle — Everything Under The Light</title>
+<meta name="description" content="Laivestyle is clothing for every moment the light finds you. Drop 01 is a small run — join the waitlist to shop it 24 hours early.">
+<meta name="theme-color" content="#0A0B0E">
+<meta property="og:title" content="Laivestyle — Everything Under The Light">
+<meta property="og:description" content="Drop 01 is coming. Join the waitlist to shop it 24 hours early.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+<noscript><style>.loader,.player{display:none!important}</style></noscript>
+</head>
+<body class="is-locked">
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Intro: choose sound -->
+<div class="loader" id="loader" role="dialog" aria-label="Enter Laivestyle">
+  <div class="loader__beam" aria-hidden="true"></div>
+  <img class="loader__logo" src="assets/img/logo-white.png" alt="Laivestyle">
+  <div class="loader__bar" aria-hidden="true"><span></span></div>
+  <div class="loader__enter">
+    <button class="btn btn--gold" data-enter="sound">Enter with sound
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <button class="btn btn--ghost" data-enter="quiet">Enter quietly</button>
+  </div>
+  <p class="loader__note">Best with headphones</p>
+</div>
+
+<header class="header" id="header">
+  <div class="announce">Drop 01 · Waitlist shops 24 hours early</div>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="nav__logo" href="#top" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
+    <div class="nav__links">
+      <a class="link" href="#drop">Shop</a>
+      <a class="link" href="#story">Story</a>
+      <a class="link" href="#lookbook">Lookbook</a>
+      <a class="link" href="#waitlist">Waitlist</a>
+    </div>
+    <div class="nav__actions">
+      <button class="icon-btn" data-cart-open aria-label="Open bag">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="label">Bag</span> <span data-cart-count>0</span>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#drop">Shop <em>Drop 01</em></a>
+  <a href="#story">Story</a>
+  <a href="#lookbook">Lookbook</a>
+  <a href="#waitlist">Waitlist</a>
+</div>
+
+<main>
+<section class="hero" id="top">
+  <div class="hero__rays" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__spot" id="spot" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow" data-hero="2">Laivestyle · Clothing · Est. 2026</p>
+      <h1><span class="line"><span>Everything</span></span><span class="line"><span>under <em class="gold">the light.</em></span></span></h1>
+      <p class="hero__lede" data-hero="3">Pieces made for golden hours by the water and late nights by the sea. Drop 01 is a small run — the waitlist gets it first.</p>
+      <div class="hero__ctas" data-hero="4">
+        <a class="btn btn--gold" href="#waitlist">Join the waitlist
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="#drop">Preview Drop 01</a>
+      </div>
+      <div class="countdown" data-hero="4" data-drop="2026-12-05T18:00:00Z">
+        <p class="eyebrow">Drop 01 lands in — <span data-drop-label>5 Dec, 18:00 GMT</span></p>
+        <div class="countdown__row" aria-live="off">
+          <div><span class="countdown__num" data-cd="d">00</span><span class="countdown__unit">D</span></div>
+          <div><span class="countdown__num" data-cd="h">00</span><span class="countdown__unit">H</span></div>
+          <div><span class="countdown__num" data-cd="m">00</span><span class="countdown__unit">M</span></div>
+          <div><span class="countdown__num gold" data-cd="s">00</span><span class="countdown__unit">S</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="film" data-hero="5">
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 128 128"><defs><path id="circ" d="M64,64 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+          <text><textPath href="#circ" textLength="298" lengthAdjust="spacing">Drop 01 · Under the light · Drop 01 · Under the light · </textPath></text></svg>
+        <img src="assets/img/logo-white.png" alt="">
+      </div>
+      <div class="film__frame">
+        <video id="heroFilm" src="assets/media/hero-film.mp4" poster="assets/img/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Laivestyle Drop 01 film"></video>
+        <div class="film__cap"><span>Film 01 — Under the light</span><span style="display:flex;align-items:center;gap:8px"><i class="dot"></i>Playing</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">SCROLL<i></i></div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Everything under the light</span><b>✦</b><span>Drop 01</span><b>✦</b><span>Small run, no restocks</span><b>✦</b><span>Golden hour to midnight</span><b>✦</b>
+    <span>Everything under the light</span><b>✦</b><span>Drop 01</span><b>✦</b><span>Small run, no restocks</span><b>✦</b><span>Golden hour to midnight</span><b>✦</b>
+  </div>
+</div>
+
+<section class="section" id="drop">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p class="eyebrow">The collection</p>
+        <h2 class="h2">Drop <em>01</em></h2>
+      </div>
+      <a class="link" href="product.html">View all pieces →</a>
+    </div>
+    <div class="cards">
+      <article class="card" data-reveal>
+        <a class="card__media" href="product.html?c=charcoal">
+          <img src="assets/img/fitted-tee.jpg" alt="Fitted Logo Tee in charcoal, worn by the water" loading="lazy">
+          <span class="card__tag">NEW</span>
+          <span class="card__quick">View piece</span>
+        </a>
+        <div class="card__row"><span class="card__name">Fitted Logo Tee</span><span class="card__price">[PRICE]</span></div>
+        <span class="card__meta">Charcoal · White</span>
+      </article>
+      <article class="card" data-reveal="d1">
+        <a class="card__media" href="product.html?c=white">
+          <img src="assets/img/back-print-tee.jpg" alt="Back Print Tee in white, worn by the sea at night" style="object-position:center 30%" loading="lazy">
+          <span class="card__tag">BACK PRINT</span>
+          <span class="card__quick">View piece</span>
+        </a>
+        <div class="card__row"><span class="card__name">Back Print Tee</span><span class="card__price">[PRICE]</span></div>
+        <span class="card__meta">White</span>
+      </article>
+      <article class="card" data-reveal="d2">
+        <a class="card__media" href="product.html">
+          <img src="assets/img/back-print-tee.jpg" alt="Graffiti joggers in navy with pink print" style="object-position:center 94%" loading="lazy">
+          <span class="card__tag">LIMITED</span>
+          <span class="card__quick">View piece</span>
+        </a>
+        <div class="card__row"><span class="card__name">Graffiti Joggers</span><span class="card__price">[PRICE]</span></div>
+        <span class="card__meta">Navy · Pink print</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section story" id="story">
+  <div class="story__glow" aria-hidden="true"></div>
+  <div class="wrap story__inner">
+    <img class="story__logo" src="assets/img/logo-white.png" alt="" data-reveal>
+    <p class="story__text" id="storyText" data-gold="sunset by the water, midnight by the sea.">Clothing for every moment the light finds you — sunset by the water, midnight by the sea.</p>
+    <p class="story__sub" data-reveal>[Founder story — two or three lines on who started Laivestyle, where it began, and what the hand and the light mean.]</p>
+  </div>
+</section>
+
+<section class="section" id="lookbook" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2 class="h2">Look<em>book</em></h2>
+      <p class="eyebrow">Chapter 01 — Water &amp; night</p>
+    </div>
+    <div class="lookbook">
+      <figure class="lb-1" data-reveal><img src="assets/img/fitted-tee.jpg" alt="Fitted Logo Tee, golden hour by the river" data-parallax="0.08" loading="lazy"><figcaption>Look 01 — Fitted Logo Tee</figcaption></figure>
+      <figure class="lb-2" data-reveal="d1"><img src="assets/img/back-print-tee.jpg" alt="Back Print Tee and Graffiti Joggers at night by the sea" data-parallax="0.14" loading="lazy"><figcaption>Look 02 — Back Print Tee</figcaption></figure>
+      <p class="lb-quote" data-reveal>“Wherever the light lands, that's where it's worn.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="section waitlist" id="waitlist">
+  <div class="waitlist__rays" aria-hidden="true"></div>
+  <div class="wrap waitlist__grid">
+    <div style="display:flex;flex-direction:column;gap:30px" data-reveal>
+      <p class="eyebrow eyebrow--gold">The waitlist</p>
+      <h2 class="h2">Be first<br>under <em>the light.</em></h2>
+      <div class="perks">
+        <div><i>i.</i>Shop Drop 01 a full 24 hours early</div>
+        <div><i>ii.</i>Free UK shipping on your first order</div>
+        <div><i>iii.</i>First look at every drop after this one</div>
+      </div>
+    </div>
+    <div class="form-card" id="formCard" data-reveal="d1">
+      <!-- Wire to Shopify customer form / Klaviyo list when going live -->
+      <form class="form" id="waitlistForm">
+        <label class="field">First name<input type="text" name="first_name" autocomplete="given-name" placeholder="Your first name"></label>
+        <label class="field">Email<input type="email" name="email" autocomplete="email" required placeholder="you@email.com"></label>
+        <button class="btn btn--gold btn--block" type="submit">Join the waitlist</button>
+        <p class="form__fine">One email when it drops. Nothing else.</p>
+      </form>
+      <div class="success" aria-live="polite">
+        <h3>You're <em class="gold">in.</em></h3>
+        <p style="margin:0;color:#B9B5AD;line-height:1.65">Your early-access link lands in your inbox before Drop 01 goes live. Follow <a class="gold" href="https://instagram.com/laivestyle_">@laivestyle_</a> for first looks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="journal">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2 class="h2" style="font-size:clamp(38px,4.4vw,60px)">@laivestyle_</h2>
+      <a class="link" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Follow on Instagram →</a>
+    </div>
+    <div class="ig">
+      <a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener" data-reveal><img src="assets/img/ig-logo.jpg" alt="Laivestyle logo post" loading="lazy"></a>
+      <a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener" data-reveal="d1"><img src="assets/img/fitted-tee.jpg" alt="Fitted tee by the water" loading="lazy"></a>
+      <a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener" data-reveal="d2"><img src="assets/img/back-print-tee.jpg" alt="Back print tee by the sea at night" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer__big" data-reveal>Everything under <em>the light.</em></p>
+    <div class="footer__cols">
+      <div class="footer__brand">
+        <img src="assets/img/logo-white.png" alt="Laivestyle">
+        <p>Clothing for every moment the light finds you.</p>
+      </div>
+      <div class="footer__links">
+        <div><p class="eyebrow">Shop</p><a href="#drop">Drop 01</a><a href="#waitlist">Waitlist</a><a href="#lookbook">Lookbook</a></div>
+        <div><p class="eyebrow">Help</p><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size guide</a><a href="#">Contact</a></div>
+        <div><p class="eyebrow">Follow</p><a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <span>© 2026 Laivestyle. All rights reserved.</span>
+      <a class="credit" href="https://yrbnova.com" target="_blank" rel="noopener"><i class="dot"></i>Made by YRB Nova</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Music -->
+<audio id="track" src="assets/media/under-the-light.mp3" loop preload="none"></audio>
+<button class="player" id="player" aria-label="Play music" aria-pressed="false">
+  <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+  <span class="player__text"><span class="player__state" data-player-state>Sound off</span><span class="player__track">Under The Light</span></span>
+</button>
+
+<!-- Bag -->
+<div class="drawer-bg" data-cart-close></div>
+<aside class="drawer" aria-label="Bag">
+  <div class="drawer__head"><h2>Your bag</h2><button class="icon-btn" data-cart-close aria-label="Close bag">✕</button></div>
+  <div class="drawer__body" data-cart-items><p class="drawer__empty">Your bag is empty — Drop 01 opens soon.</p></div>
+  <div class="drawer__foot"><a class="btn btn--gold btn--block" href="#waitlist" data-cart-close>Join waitlist to check out early</a><p>Checkout opens when Drop 01 goes live.</p></div>
+</aside>
+
+<script src="js/main.js"></script>
+</body>
+</html>
