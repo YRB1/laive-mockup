@@ -3,139 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fitted Logo Tee — Laivestyle</title>
-<meta name="description" content="The Fitted Logo Tee from Laivestyle Drop 01 — the hand-and-light mark on the chest, in charcoal or white.">
-<meta name="theme-color" content="#0A0B0E">
-<meta property="og:title" content="Fitted Logo Tee — Laivestyle">
-<meta property="og:image" content="assets/img/fitted-tee.jpg">
+<title>Laivestyle</title>
+<meta name="theme-color" content="#000000">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<script>document.documentElement.classList.add('js')</script>
-<noscript><style>.player{display:none!important}</style></noscript>
 </head>
-<body class="pdp-page">
-<div class="grain" aria-hidden="true"></div>
+<body>
 
-<header class="header" id="header">
-  <div class="announce">Drop 01 · Waitlist shops 24 hours early</div>
-  <nav class="wrap nav" aria-label="Main">
-    <a class="nav__logo" href="index.html" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
-    <div class="nav__links">
-      <a class="link" href="index.html#drop">Shop</a>
-      <a class="link" href="index.html#story">Story</a>
-      <a class="link" href="index.html#lookbook">Lookbook</a>
-      <a class="link" href="index.html#waitlist">Waitlist</a>
-    </div>
-    <div class="nav__actions">
-      <button class="icon-btn" data-cart-open aria-label="Open bag">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        <span class="label">Bag</span> <span data-cart-count>0</span>
-      </button>
-      <button class="icon-btn burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
-    </div>
+<header class="head solid" id="head" style="top:0">
+  <nav>
+    <a class="u-hover" href="index.html#shop">Shop</a>
+    <a class="u-hover" href="index.html#store">Store</a>
+    <a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a>
   </nav>
+  <button class="head__menu" id="menuBtn" aria-expanded="false">Menu</button>
+  <a class="head__logo" href="index.html" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
+  <div class="head__right">
+    <button class="hide-sm u-hover" data-sound>Sound off</button>
+    <button class="u-hover" data-bag>Bag (<span data-count>0</span>)</button>
+  </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#drop">Shop <em>Drop 01</em></a>
-  <a href="index.html#story">Story</a>
-  <a href="index.html#lookbook">Lookbook</a>
-  <a href="index.html#waitlist">Waitlist</a>
+<div class="menu" id="menu">
+  <a href="index.html#shop">Shop</a>
+  <a href="index.html#store">Store</a>
+  <a href="index.html#signup">Early access</a>
+  <div class="small"><button data-sound>Sound off</button><a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
 </div>
 
 <main class="pdp" id="pdp">
-  <div class="wrap">
-    <div class="crumbs"><a href="index.html">Home</a> / <a href="index.html#drop">Drop 01</a> / Fitted Logo Tee</div>
-    <div class="pdp__grid">
-      <div class="gallery" data-reveal>
-        <div class="thumbs">
-          <button data-colour="charcoal" aria-label="Show charcoal"><img src="assets/img/fitted-tee.jpg" alt=""></button>
-          <button data-colour="white" aria-label="Show white"><img src="assets/img/back-print-tee.jpg" alt="" style="object-position:center 30%"></button>
-        </div>
-        <div class="stage" id="stage" title="Click to zoom">
-          <img id="stageImg" src="assets/img/fitted-tee.jpg" alt="Fitted Logo Tee">
-          <span class="stage__tag" data-colour-name>Charcoal</span>
-        </div>
-      </div>
-
-      <div class="buy" data-reveal="d1">
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <p class="eyebrow eyebrow--gold">Drop 01 · Small run</p>
-          <h1>Fitted Logo Tee</h1>
-          <span class="buy__price">[PRICE]</span>
-        </div>
-        <div>
-          <div class="opt-label"><span>Colour — <span data-colour-name>Charcoal</span></span></div>
-          <div class="swatches">
-            <button class="swatch" data-colour="charcoal" aria-label="Charcoal" style="background:#3B3E44"></button>
-            <button class="swatch" data-colour="white" aria-label="White" style="background:#F2EEE6"></button>
-          </div>
-        </div>
-        <div>
-          <div class="opt-label"><span>Size — <span data-size-name>Select</span></span><a class="link" href="#details" style="font-size:11px">Size guide</a></div>
-          <div class="sizes">
-            <button class="size">XS</button><button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <button class="btn btn--gold btn--block" id="addToBag" data-add>Select a size <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          <a class="btn btn--ghost btn--block" href="index.html#waitlist">Not on the list? Join the waitlist</a>
-          <p style="margin:6px 0 0;font-size:13px;color:var(--muted)">Free UK shipping on your first order · 30-day returns</p>
-        </div>
-        <p class="buy__desc">A close, flattering fit with the hand-and-light mark on the chest. Soft, breathable cotton made for long summer evenings.</p>
-        <div class="acc" id="details">
-          <details open><summary>Details &amp; fit <i aria-hidden="true">+</i></summary><p>[Fabric, weight and fit notes — e.g. model is 5'7" wearing S.]</p></details>
-          <details><summary>Size guide <i aria-hidden="true">+</i></summary><p>[Chest, length and sleeve in cm, XS to XXL.]</p></details>
-          <details><summary>Shipping &amp; returns <i aria-hidden="true">+</i></summary><p>[Dispatch times, UK and international rates, returns window.]</p></details>
-        </div>
-      </div>
+  <div class="pdp__imgs" data-imgs></div>
+  <div class="pdp__info">
+    <div>
+      <div class="pdp__name" data-name>Fitted Logo Tee</div>
+      <div data-price></div>
+    </div>
+    <div>
+      <p style="margin:0 0 8px">Colour: <span data-colour-name></span></p>
+      <div class="opts" data-colours></div>
+    </div>
+    <div>
+      <p style="margin:0 0 8px">Size</p>
+      <div class="opts" data-sizes></div>
+    </div>
+    <div>
+      <button class="cta" id="addBtn">Add to bag</button>
+      <p class="msg muted" id="msg">Pre-order. Ships after Drop 01 — 05.12.26.</p>
+    </div>
+    <div class="acc">
+      <details open><summary>Description</summary><p data-desc></p></details>
+      <details><summary>Size &amp; fit</summary><p>Size guide to follow.</p></details>
+      <details><summary>Shipping &amp; returns</summary><p>UK and international shipping. Details to follow before Drop 01.</p></details>
     </div>
   </div>
 </main>
 
-<section class="section" style="border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="section-head" data-reveal><h2 class="h2" style="font-size:clamp(38px,4.4vw,60px)">Complete the <em>look</em></h2><a class="link" href="index.html#drop">All of Drop 01 →</a></div>
-    <div class="cards">
-      <article class="card" data-reveal>
-        <a class="card__media" href="product.html?c=white"><img src="assets/img/back-print-tee.jpg" alt="Back Print Tee in white" style="object-position:center 30%" loading="lazy"><span class="card__quick">View piece</span></a>
-        <div class="card__row"><span class="card__name">Back Print Tee</span><span class="card__price">[PRICE]</span></div>
-      </article>
-      <article class="card" data-reveal="d1">
-        <a class="card__media" href="product.html"><img src="assets/img/back-print-tee.jpg" alt="Graffiti Joggers in navy" style="object-position:center 94%" loading="lazy"><span class="card__quick">View piece</span></a>
-        <div class="card__row"><span class="card__name">Graffiti Joggers</span><span class="card__price">[PRICE]</span></div>
-      </article>
-    </div>
-  </div>
-</section>
+<div class="row"><span>You may also like</span></div>
+<div class="grid grid--4" data-also></div>
 
-<footer class="footer" style="padding-top:0;border-top:1px solid var(--line)">
-  <div class="wrap">
-    <div class="footer__bar" style="border-top:0">
-      <span>© 2026 Laivestyle. All rights reserved.</span>
-      <a class="credit" href="https://yrbnova.com" target="_blank" rel="noopener"><i class="dot"></i>Made by YRB Nova</a>
-    </div>
+<footer class="foot">
+  <div class="signup" id="signup">
+    <p>Early access to Drop 01</p>
+    <form id="signupForm"><input type="email" name="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Submit</button></form>
+    <div class="done">Thank you. You're on the list.</div>
   </div>
+  <div><p class="muted">Help</p><a class="u-hover" href="#">Shipping</a><a class="u-hover" href="#">Returns</a><a class="u-hover" href="#">Size guide</a><a class="u-hover" href="#">Contact</a></div>
+  <div><p class="muted">Follow</p><a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
+  <div class="foot__end"><span>© 2026 Laivestyle</span><span>Site by <a class="u" href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a></span></div>
 </footer>
 
-<div class="sticky-buy"><button class="btn btn--gold btn--block" data-add>Select a size <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-
-<audio id="track" src="assets/media/under-the-light.mp3" loop preload="none"></audio>
-<button class="player" id="player" aria-label="Play music" aria-pressed="false">
-  <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-  <span class="player__text"><span class="player__state" data-player-state>Sound off</span><span class="player__track">Under The Light</span></span>
-</button>
-
-<div class="drawer-bg" data-cart-close></div>
-<aside class="drawer" aria-label="Bag">
-  <div class="drawer__head"><h2>Your bag</h2><button class="icon-btn" data-cart-close aria-label="Close bag">✕</button></div>
-  <div class="drawer__body" data-cart-items></div>
-  <div class="drawer__foot"><a class="btn btn--gold btn--block" href="index.html#waitlist">Join waitlist to check out early</a><p>Checkout opens when Drop 01 goes live.</p></div>
+<div class="shade" data-bag-close></div>
+<aside class="bag" aria-label="Bag">
+  <div class="bag__top"><span>Bag (<span data-count>0</span>)</span><button class="u-hover" data-bag-close>Close</button></div>
+  <div class="bag__body" data-bag-items></div>
+  <div class="bag__foot" data-bag-foot>
+    <div class="bag__row"><span>Subtotal</span><span data-subtotal>£0.00</span></div>
+    <div class="bag__row muted"><span>Shipping</span><span>Calculated at checkout</span></div>
+    <button class="cta cta--dark" data-checkout>Checkout</button>
+    <p class="muted" data-checkout-msg></p>
+  </div>
 </aside>
 
+<audio id="theme" src="assets/media/laivestyle-theme.mp3" loop preload="auto"></audio>
 <script src="js/main.js"></script>
 </body>
 </html>
