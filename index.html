@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0A0B0E">
 <meta property="og:title" content="Laivestyle — Everything Under The Light">
 <meta property="og:description" content="Drop 01 is coming. Join the waitlist to shop it 24 hours early.">
-<meta property="og:image" content="assets/img/og.jpg">
+<meta property="og:image" content="assets/img/store-still.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -22,17 +22,23 @@
 <body class="is-locked">
 <div class="grain" aria-hidden="true"></div>
 
-<!-- Intro: choose sound -->
-<div class="loader" id="loader" role="dialog" aria-label="Enter Laivestyle">
-  <div class="loader__beam" aria-hidden="true"></div>
-  <img class="loader__logo" src="assets/img/logo-white.png" alt="Laivestyle">
-  <div class="loader__bar" aria-hidden="true"><span></span></div>
-  <div class="loader__enter">
-    <button class="btn btn--gold" data-enter="sound">Enter with sound
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    <button class="btn btn--ghost" data-enter="quiet">Enter quietly</button>
+<!-- Intro: the floating store -->
+<div class="loader" id="loader" role="dialog" aria-label="Enter the Laivestyle store">
+  <video class="intro__bg" src="assets/media/store-idle.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="intro__stage">
+    <video id="introIdle" src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline aria-label="The Laivestyle store floating above the clouds"></video>
+    <video class="intro__fly" id="introFly" src="assets/media/store-flyin.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
   </div>
-  <p class="loader__note">Best with headphones</p>
+  <button class="intro__skip" data-enter="skip">Skip intro</button>
+  <div class="intro__ui">
+    <p class="intro__title">Everything under <em>the light.</em></p>
+    <div class="loader__enter">
+      <button class="btn btn--gold" data-enter="sound">Enter the store
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="btn btn--ghost" data-enter="quiet" style="background:rgba(14,10,20,.35);backdrop-filter:blur(8px)">Enter quietly</button>
+    </div>
+    <p class="loader__note">Sound on for the full experience</p>
+  </div>
 </div>
 
 <header class="header" id="header">
@@ -41,6 +47,7 @@
     <a class="nav__logo" href="#top" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
     <div class="nav__links">
       <a class="link" href="#drop">Shop</a>
+      <a class="link" href="#store">The store</a>
       <a class="link" href="#story">Story</a>
       <a class="link" href="#lookbook">Lookbook</a>
       <a class="link" href="#waitlist">Waitlist</a>
@@ -57,6 +64,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#drop">Shop <em>Drop 01</em></a>
+  <a href="#store">The store</a>
   <a href="#story">Story</a>
   <a href="#lookbook">Lookbook</a>
   <a href="#waitlist">Waitlist</a>
@@ -71,7 +79,7 @@
     <div class="hero__copy">
       <p class="eyebrow" data-hero="2">Laivestyle · Clothing · Est. 2026</p>
       <h1><span class="line"><span>Everything</span></span><span class="line"><span>under <em class="gold">the light.</em></span></span></h1>
-      <p class="hero__lede" data-hero="3">Pieces made for golden hours by the water and late nights by the sea. Drop 01 is a small run — the waitlist gets it first.</p>
+      <p class="hero__lede" data-hero="3">A store above the clouds, lit by one hand. Drop 01 is a small run of pieces made for golden hours and late nights — the waitlist gets it first.</p>
       <div class="hero__ctas" data-hero="4">
         <a class="btn btn--gold" href="#waitlist">Join the waitlist
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -95,8 +103,8 @@
         <img src="assets/img/logo-white.png" alt="">
       </div>
       <div class="film__frame">
-        <video id="heroFilm" src="assets/media/hero-film.mp4" poster="assets/img/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Laivestyle Drop 01 film"></video>
-        <div class="film__cap"><span>Film 01 — Under the light</span><span style="display:flex;align-items:center;gap:8px"><i class="dot"></i>Playing</span></div>
+        <video id="heroFilm" src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline preload="auto" aria-label="The Laivestyle store floating above the clouds"></video>
+        <div class="film__cap"><span>The store — above the clouds</span><span style="display:flex;align-items:center;gap:8px"><i class="dot"></i>Open soon</span></div>
       </div>
     </div>
   </div>
@@ -147,6 +155,22 @@
         <div class="card__row"><span class="card__name">Graffiti Joggers</span><span class="card__price">[PRICE]</span></div>
         <span class="card__meta">Navy · Pink print</span>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="section inside" id="store">
+  <div class="inside__glow" aria-hidden="true"></div>
+  <div class="wrap inside__grid">
+    <figure class="inside__media" data-reveal><img src="assets/img/store-interior.jpg" alt="Inside the Laivestyle store: white arches, velvet seating and the hand-of-light mark" data-parallax="0.06" loading="lazy"><figcaption>Inside the store</figcaption></figure>
+    <div class="inside__copy" data-reveal="d1">
+      <p class="eyebrow eyebrow--gold">The store</p>
+      <h2 class="h2">A store <em>above the clouds.</em></h2>
+      <p class="body">Laivestyle lives in its own world — a floating store where a single hand lights the way in. Velvet, white stone, and Drop 01 on the rails. Step in when the doors open.</p>
+      <div class="inside__ctas">
+        <a class="btn btn--gold" href="#drop">Shop Drop 01 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <button class="link" data-replay>Replay the entrance ↺</button>
+      </div>
     </div>
   </div>
 </section>
@@ -239,6 +263,7 @@
 </footer>
 
 <!-- Music -->
+<audio id="introMusic" src="assets/media/intro-music.mp3" preload="auto"></audio>
 <audio id="track" src="assets/media/under-the-light.mp3" loop preload="none"></audio>
 <button class="player" id="player" aria-label="Play music" aria-pressed="false">
   <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>

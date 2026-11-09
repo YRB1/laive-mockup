@@ -47,33 +47,56 @@
     setPlayingUI(false);
     store.set('laiv-sound', 'off');
   }
-  if (player) player.addEventListener('click', function () { audio.paused ? playMusic() : pauseMusic(); });
+  if (player) player.addEventListener('click', function () {
+    var im = $('#introMusic');
+    if (im && !im.paused) { im.pause(); setPlayingUI(false); store.set('laiv-sound', 'off'); return; }
+    audio.paused ? playMusic() : pauseMusic();
+  });
   if (audio) {
     setInterval(function () { if (!audio.paused) store.set('laiv-t', String(audio.currentTime), true); }, 1000);
   }
   function showPlayer() { if (player) setTimeout(function () { player.classList.add('is-shown'); }, 600); }
 
-  /* ---------------- intro / enter ---------------- */
+  /* ---------------- intro: fly into the floating store ---------------- */
   var loader = $('#loader');
-  function enter(withSound) {
+  var introMusic = $('#introMusic');
+  var fly = $('#introFly');
+  var entered = false;
+  // his intro track first, then hand over to the ambient loop
+  if (introMusic) introMusic.addEventListener('ended', function () { if (store.get('laiv-sound') === 'on') playMusic(); });
+  function finishEnter() {
+    if (entered) return; entered = true;
     body.classList.remove('is-locked');
     body.classList.add('is-entered');
     if (loader) loader.classList.add('is-done');
     store.set('laiv-entered', '1', true);
     showPlayer();
-    if (withSound) playMusic();
+  }
+  function enter(mode) {
+    if (mode === 'skip' || reduce || !fly) { if (mode === 'sound') playMusic(); finishEnter(); return; }
+    if (mode === 'sound' && introMusic) {
+      store.set('laiv-sound', 'on');
+      introMusic.volume = 0.85; var ip = introMusic.play();
+      if (ip && ip.catch) ip.catch(function () { playMusic(); });
+      setPlayingUI(true);
+    }
+    loader.classList.add('is-flying');
+    try { fly.currentTime = 0; } catch (e) {}
+    var fp2 = fly.play(); if (fp2 && fp2.catch) fp2.catch(function () { finishEnter(); });
+    fly.addEventListener('ended', finishEnter, { once: true });
+    setTimeout(finishEnter, 5200); // failsafe
   }
   if (loader && !store.get('laiv-entered', true)) {
-    setTimeout(function () { loader.classList.add('is-ready'); var b = $('[data-enter="sound"]'); if (b) b.focus({ preventScroll: true }); }, reduce ? 50 : 1900);
+    setTimeout(function () { loader.classList.add('is-ready'); }, reduce ? 50 : 900);
     $$('[data-enter]').forEach(function (b) {
-      b.addEventListener('click', function () { enter(b.getAttribute('data-enter') === 'sound'); });
+      b.addEventListener('click', function () { enter(b.getAttribute('data-enter')); });
     });
   } else {
     if (loader) loader.classList.add('is-done');
+    entered = true;
     body.classList.remove('is-locked');
     requestAnimationFrame(function () { body.classList.add('is-entered'); });
     showPlayer();
-    // returning visitor who chose sound: resume on first interaction (browsers block autoplay)
     if (store.get('laiv-sound') === 'on' && audio) {
       var resume = function () {
         ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { window.removeEventListener(ev, resume); });
@@ -82,6 +105,9 @@
       ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { window.addEventListener(ev, resume, { passive: true }); });
     }
   }
+  $$('[data-replay]').forEach(function (b) {
+    b.addEventListener('click', function () { try { sessionStorage.removeItem('laiv-entered'); } catch (e) {} location.href = location.pathname; });
+  });
 
   /* ---------------- hero film ---------------- */
   var film = $('#heroFilm');
