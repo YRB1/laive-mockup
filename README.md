@@ -10,7 +10,7 @@ Plain HTML, CSS and JS. No build step.
 `index` (home) · `shop` (filters and sort) · `product?p=<id>` · `lookbook` · `about` · `faq` (delivery, returns, size guide) · `contact` · `policies`
 
 ## Features
-- **Intro:** the 3D store "Enter" sequence. Music plays here only, then fades out.
+- **Intro:** a custom light-beam sequence. The hand mark pours in under a light beam with a loading counter, then "Enter". The tagline plays word by word and a white flash wipes into the site. Music plays here only, then fades out.
 - **Home hero:** an always-playing, always-muted campaign film (16:9 on desktop, 9:16 on phones).
 - **Sliders:** New in, Bestsellers, Reviews, Complete the look, Recently viewed.
 - **Shopping:** quick-add on product cards, wishlist, search, a bag drawer with a free-delivery progress bar and Klarna split, colourways, a size guide modal, low-stock hints and a sticky add-to-bag on mobile.

@@ -316,35 +316,43 @@
 
   /* ---------------- cookie ---------------- */
   var ck = $('#cookie');
-  if (ck && !ls.get('laiv-cookie', null)) setTimeout(function () { ck.classList.add('on'); }, 1500);
+  if (ck && !ls.get('laiv-cookie', null)) { var showCk = function () { setTimeout(function () { ck.classList.add('on'); }, 4000); }; if (document.body.classList.contains('entered')) showCk(); else new MutationObserver(function (m, o) { if (document.body.classList.contains('entered')) { o.disconnect(); showCk(); } }).observe(document.body, { attributes: true, attributeFilter: ['class'] }); }
   document.addEventListener('click', function (e) { var c = e.target.closest('[data-cookie]'); if (c) { ls.set('laiv-cookie', c.getAttribute('data-cookie')); ck.classList.remove('on'); } });
 
   /* ---------------- intro (home only): sound plays here and nowhere else ---------------- */
   var intro = $('#intro');
+  var enterSite = function () { document.body.classList.add('entered'); };
+  if (!intro) enterSite();
   if (intro) {
-    var music = $('#introMusic'), fly = $('#fly'), done = false, entered = false;
-    try { entered = sessionStorage.getItem('laiv-in'); } catch (e) {}
+    var music = $('#introMusic'), done = false, seen = false;
+    try { seen = sessionStorage.getItem('laiv-in'); } catch (e) {}
     var fadeOut = function () {
       if (!music || music.paused) return;
-      var v = music.volume, t = setInterval(function () { v -= 0.05; if (v <= 0) { clearInterval(t); music.pause(); } else music.volume = v; }, 80);
+      var v = music.volume, t = setInterval(function () { v -= 0.04; if (v <= 0) { clearInterval(t); music.pause(); } else music.volume = v; }, 70);
     };
     var finish = function () {
       if (done) return; done = true;
       intro.classList.add('gone'); document.body.classList.remove('lock');
       try { sessionStorage.setItem('laiv-in', '1'); } catch (e) {}
-      setTimeout(fadeOut, 900);
+      setTimeout(enterSite, 150);
+      setTimeout(fadeOut, 1200);
     };
-    if (entered) { intro.classList.add('gone'); }
+    if (seen) { intro.classList.add('gone'); enterSite(); }
     else {
       document.body.classList.add('lock');
-      setTimeout(function () { intro.classList.add('ready'); }, 500);
+      var pct = $('[data-pct]', intro), bar = $('.intro__load b', intro), start = Date.now(), dur = 2300;
+      var load = function () {
+        var k = Math.min(1, (Date.now() - start) / dur), e = 1 - Math.pow(1 - k, 3);
+        pct.textContent = String(Math.round(e * 100)).padStart(3, '0'); bar.style.width = (e * 100) + '%';
+        if (k < 1) requestAnimationFrame(load); else intro.classList.add('ready');
+      };
+      requestAnimationFrame(load);
       $$('[data-enter]', intro).forEach(function (b) {
         b.addEventListener('click', function () {
-          if (b.getAttribute('data-enter') === 'sound' && music) { music.volume = 0.85; var p = music.play(); if (p && p.catch) p.catch(function () {}); }
-          intro.classList.add('flying');
-          var fp = fly.play(); if (fp && fp.catch) fp.catch(finish);
-          fly.addEventListener('ended', finish, { once: true });
-          setTimeout(finish, 4800);
+          if (b.getAttribute('data-enter') === 'sound' && music) { music.volume = 0.9; var p = music.play(); if (p && p.catch) p.catch(function () {}); }
+          intro.classList.add('playing');
+          setTimeout(function () { intro.classList.add('flash'); }, 2500);
+          setTimeout(finish, 3300);
         });
       });
     }
@@ -352,6 +360,10 @@
 
   /* hero videos: always playing, always muted */
   $$('video[data-loop]').forEach(function (v) { v.muted = true; v.setAttribute('muted', ''); var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+
+  /* hero film progress bar */
+  var hv = $$('.hero video'), hb = $('.hero__bar i');
+  if (hb && hv.length) setInterval(function () { var v = hv.filter(function (x) { return x.offsetParent; })[0]; if (v && v.duration) hb.style.width = (v.currentTime / v.duration * 100) + '%'; }, 120);
 
   /* recently viewed */
   window.LAIV.viewed = function (id) { var v = ls.get('laiv-viewed', []).filter(function (x) { return x !== id; }); v.unshift(id); ls.set('laiv-viewed', v.slice(0, 8)); };
