@@ -11,7 +11,9 @@ Plain HTML, CSS and JS. No build step.
 
 ## Features
 - **Intro:** a custom light-beam sequence. The hand mark pours in under a light beam with a loading counter, then "Enter". The tagline plays word by word and a white flash wipes into the site. Music plays here only, then fades out.
-- **Home hero:** an always-playing, always-muted campaign film (16:9 on desktop, 9:16 on phones).
+- **Home hero:** an always-playing, always-muted campaign film (16:9 on desktop, 9:16 on phones). On Apple devices it loads as an MP4 image so it still plays in iOS Low Power Mode.
+- **Coventry map:** on the homepage and the contact page (OpenStreetMap, no API key needed).
+- **Scroll animations:** sections, cards and tiles reveal as you scroll. Bestsellers and Reviews are auto-playing carousels.
 - **Sliders:** New in, Bestsellers, Reviews, Complete the look, Recently viewed.
 - **Shopping:** quick-add on product cards, wishlist, search, a bag drawer with a free-delivery progress bar and Klarna split, colourways, a size guide modal, low-stock hints and a sticky add-to-bag on mobile.
 - **Site-wide:** announcement bar, mega menu, mobile menu, cookie banner, newsletter sign-up, social feed (Instagram and TikTok), payment badges and currency selector.

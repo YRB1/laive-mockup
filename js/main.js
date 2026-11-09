@@ -68,7 +68,19 @@
       imgs: [R + 'joggers.jpg', R + 'joggers-detail.jpg'],
       desc: 'Relaxed navy joggers with hand-drawn pink graffiti print on both legs.',
       details: ['Brushed-back fleece', 'Relaxed straight leg', 'Elasticated waist and cuffs', 'All-over leg print'] },
-    { id: 'logo-tee-grey', group: 'oversized-tee', name: 'Logo Tee', colour: 'Heather Grey', hex: '#b9bcbf', price: 35, cat: 'T-shirts',
+    { id: 'oversized-tee-pink', group: 'oversized-tee', name: 'Oversized Logo Tee', colour: 'Dusty Pink', hex: '#f0aac8', price: 40, cat: 'T-shirts', badge: 'New',
+      imgs: [A + 'tee-pink.jpg', A + 'studio-white.jpg'],
+      desc: 'Boxy, dropped-shoulder tee in 240gsm cotton, garment-dyed dusty pink, with the hand mark on the chest.',
+      details: ['240gsm 100% cotton jersey', 'Garment dyed', 'Oversized boxy fit — size down for a regular fit', 'Screen-printed hand mark'] },
+    { id: 'oversized-tee-sage', group: 'oversized-tee', name: 'Oversized Logo Tee', colour: 'Sage', hex: '#aabea0', price: 40, cat: 'T-shirts', badge: 'New',
+      imgs: [A + 'tee-sage.jpg', A + 'studio-white.jpg'],
+      desc: 'Boxy, dropped-shoulder tee in 240gsm cotton, garment-dyed sage, with the hand mark on the chest.',
+      details: ['240gsm 100% cotton jersey', 'Garment dyed', 'Oversized boxy fit — size down for a regular fit', 'Screen-printed hand mark'] },
+    { id: 'oversized-tee-sky', group: 'oversized-tee', name: 'Oversized Logo Tee', colour: 'Sky', hex: '#a5c3e4', price: 40, cat: 'T-shirts', badge: 'New', low: ['S'],
+      imgs: [A + 'tee-sky.jpg', A + 'studio-white.jpg'],
+      desc: 'Boxy, dropped-shoulder tee in 240gsm cotton, garment-dyed sky blue, with the hand mark on the chest.',
+      details: ['240gsm 100% cotton jersey', 'Garment dyed', 'Oversized boxy fit — size down for a regular fit', 'Screen-printed hand mark'] },
+    { id: 'logo-tee-grey', group: 'logo-tee', name: 'Logo Tee', colour: 'Heather Grey', hex: '#b9bcbf', price: 35, cat: 'T-shirts',
       imgs: [S + 'grey-tee-1.jpg', S + 'grey-tee-detail.jpg'],
       desc: 'Classic-fit cotton tee with the hand mark on the chest.',
       details: ['180gsm cotton jersey', 'Regular fit', 'Printed hand mark', 'Machine wash cold'] }
@@ -305,6 +317,19 @@
     if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step() * 2, behavior: 'smooth' }); });
     if (next) next.addEventListener('click', function () { track.scrollBy({ left: step() * 2, behavior: 'smooth' }); });
     track.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
+    if (root.hasAttribute('data-auto') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var hold = 0, visible = false;
+      var hit = function () { hold = Date.now() + 7000; };
+      ['pointerdown', 'touchstart', 'wheel', 'mouseenter'].forEach(function (ev) { track.addEventListener(ev, hit, { passive: true }); });
+      [prev, next].forEach(function (b) { if (b) b.addEventListener('click', hit); });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(track); else visible = true;
+      setInterval(function () {
+        if (!visible || Date.now() < hold || document.hidden) return;
+        var max = track.scrollWidth - track.clientWidth;
+        if (track.scrollLeft >= max - 4) track.scrollTo({ left: 0, behavior: 'smooth' });
+        else track.scrollBy({ left: step(), behavior: 'smooth' });
+      }, 3200);
+    }
   };
 
   /* ---------------- newsletter + forms ---------------- */
@@ -358,12 +383,52 @@
     }
   }
 
+  /* ---------------- hero film: plays everywhere, including iOS Low Power Mode ----------------
+     Safari blocks <video> autoplay in Low Power Mode, but it still plays an MP4 loaded through <img>
+     (like a GIF). Apple browsers get the img route; everyone else gets a muted looping <video>. */
+  var hm = $('[data-hero-media]');
+  if (hm) {
+    var apple = /Apple/.test(navigator.vendor || '');
+    var films = [['v-d', 'assets/media/hero-16x9.mp4'], ['v-m', 'assets/media/hero-9x16.mp4']];
+    films.forEach(function (f) {
+      var el;
+      if (apple) { el = document.createElement('img'); el.alt = ''; el.decoding = 'async'; }
+      else { el = document.createElement('video'); el.muted = true; el.defaultMuted = true; el.loop = true; el.autoplay = true; el.playsInline = true; el.setAttribute('muted', ''); el.setAttribute('playsinline', ''); el.setAttribute('autoplay', ''); el.setAttribute('loop', ''); el.setAttribute('data-loop', ''); el.preload = 'auto'; }
+      el.className = 'hero__film ' + f[0]; el.setAttribute('aria-label', 'Laivestyle Drop 01 campaign film');
+      el.addEventListener(apple ? 'load' : 'playing', function () { el.classList.add('on'); });
+      el.addEventListener('error', function () { el.remove(); });
+      el.src = f[1]; hm.appendChild(el);
+      if (!apple) { var pp = el.play(); if (pp && pp.catch) pp.catch(function () {}); }
+    });
+    if (!apple) {
+      var kick = function () { $$('video.hero__film').forEach(function (v) { if (v.paused) { var q = v.play(); if (q && q.catch) q.catch(function () {}); } }); };
+      ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) { window.addEventListener(ev, kick, { passive: true, once: true }); });
+      document.addEventListener('visibilitychange', function () { if (!document.hidden) kick(); });
+    }
+  }
+
+  /* ---------------- scroll reveal ---------------- */
+  var rvSel = '.sec-head, .card, .tile, .rcard, .post, .trust > div, .mapwrap > *, .values > div, .news > div, .footer__cols > div, .page-head, .prose > *';
+  var markRv = function (root) {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    $$(rvSel, root).forEach(function (el) {
+      if (el.classList.contains('rv') || el.closest('.drawer,.search,.mnav,.modal,.intro')) return;
+      var sib = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.setProperty('--d', Math.min(sib, 6) * 70 + 'ms'); el.classList.add('rv'); io.observe(el);
+    });
+  };
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 }) : null;
+  window.LAIV.reveal = markRv;
+  setTimeout(function () { markRv(document); }, 0);
+
   /* hero videos: always playing, always muted */
   $$('video[data-loop]').forEach(function (v) { v.muted = true; v.setAttribute('muted', ''); var p = v.play(); if (p && p.catch) p.catch(function () {}); });
 
   /* hero film progress bar */
-  var hv = $$('.hero video'), hb = $('.hero__bar i');
-  if (hb && hv.length) setInterval(function () { var v = hv.filter(function (x) { return x.offsetParent; })[0]; if (v && v.duration) hb.style.width = (v.currentTime / v.duration * 100) + '%'; }, 120);
+  var hb = $('.hero__bar i');
+  if (hb) { var t0 = Date.now(); setInterval(function () { var v = $$('.hero__media video').filter(function (x) { return x.offsetParent; })[0]; if (v && v.duration) hb.style.width = (v.currentTime / v.duration * 100) + '%'; else { var D = window.innerWidth < 641 ? 16800 : 13600; hb.style.width = ((Date.now() - t0) % D) / D * 100 + '%'; } }, 120); }
 
   /* recently viewed */
   window.LAIV.viewed = function (id) { var v = ls.get('laiv-viewed', []).filter(function (x) { return x !== id; }); v.unshift(id); ls.set('laiv-viewed', v.slice(0, 8)); };
