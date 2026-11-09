@@ -1,29 +1,33 @@
-# Laivestyle
+# Laivestyle — store concept
 
-Store concept for [Laivestyle](https://instagram.com/laivestyle_) — site by [YRB Nova](https://yrbnova.com).
+Full store concept for [Laivestyle](https://instagram.com/laivestyle_), designed and built by [YRB Nova](https://yrbnova.com).
 
 Plain HTML, CSS and JS. No build step.
 
 **Deploy on Vercel:** vercel.com/new → Import `YRB1/laive-mockup` → Framework preset: Other → Deploy. Every push to `main` redeploys.
 
 ## Pages
+`index` (home) · `shop` (filters and sort) · `product?p=<id>` · `lookbook` · `about` · `faq` (delivery, returns, size guide) · `contact` · `policies`
 
-- `index.html`. The 3D store intro (with or without sound), a campaign triptych, the Drop 01 grid with category filters, shop-by-category tiles, the store, and an email sign-up.
-- `product.html?p=<id>`. Product page: gallery, colourways, sizes, add to bag.
-- The bag drawer works across pages and shows a subtotal. Checkout is a stub until Shopify is connected.
+## Features
+- **Intro:** the 3D store "Enter" sequence. Music plays here only, then fades out.
+- **Home hero:** an always-playing, always-muted campaign film (16:9 on desktop, 9:16 on phones).
+- **Sliders:** New in, Bestsellers, Reviews, Complete the look, Recently viewed.
+- **Shopping:** quick-add on product cards, wishlist, search, a bag drawer with a free-delivery progress bar and Klarna split, colourways, a size guide modal, low-stock hints and a sticky add-to-bag on mobile.
+- **Site-wide:** announcement bar, mega menu, mobile menu, cookie banner, newsletter sign-up, social feed (Instagram and TikTok), payment badges and currency selector.
 
-The catalogue lives in `js/main.js` (`CAT`).
+The catalogue and sample reviews are in `js/main.js` (`CAT`, `REVIEWS`).
 
-## Before going live
-
-| What | Notes |
+## Placeholders to replace before launch
+| Item | Notes |
 |---|---|
-| Prices | £30–£75 placeholders in `CAT` |
-| Product photos | Pages using Unsplash stock shots with the Laivestyle mark composited on (`assets/img/shop/`). Replace them with real product photography. |
-| 3D store clips and theme music | Cut from a 592px screen recording. Swap in the original renders and the full track. |
-| Sign-up and checkout | Connect to Shopify (customer form and cart) or Klaviyo |
-| Drop date | `2026-12-05T18:00:00Z` in `js/main.js` and the top bar |
+| Prices, fabric weights, delivery rates, 10% sign-up offer | Concept values. Confirm with Laivestyle |
+| Reviews | Every card is labelled **Sample**. Replace with real reviews after Drop 01 (Judge.me, or Shopify's own) |
+| TikTok, X and YouTube links | `#`. Only Instagram is real |
+| Product imagery | `assets/img/ai/` is AI-generated (FLUX) and `assets/img/shop/` is Unsplash stock, both with the Laivestyle mark composited on. Replace with real product photography |
+| Founder story, email, policies | Marked with `[...]` |
+| Checkout, sign-up and contact forms | Front-end only. Connect to Shopify or Klaviyo |
+| 3D store clips and theme music | Cut from a 592px screen recording. Swap in the original renders and the full track |
 
 ## Credits
-
-The stock photos are from Unsplash and used under the Unsplash License, which allows free commercial use with no attribution required.
+Stock photos from Unsplash, used under the Unsplash License.

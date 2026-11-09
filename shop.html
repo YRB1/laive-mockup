@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shop all — Laivestyle</title>
+<meta name="description" content="Shop Laivestyle Drop 01: tees, hoodies, crewnecks and joggers.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:image" content="assets/img/ai/look-clouds.jpg">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+<div data-header></div>
+<main>
+  <div class="wrap page-head"><div><p class="crumbs" style="padding:0 0 10px"><a href="index.html">Home</a> / Shop</p><h1 class="display h2" data-title>Shop all</h1></div><p class="muted" style="margin:0"><span data-total></span> products</p></div>
+  <div class="wrap toolbar">
+    <div class="chips" data-chips></div>
+    <label class="muted" style="font-size:12px;display:flex;align-items:center;gap:8px">Sort <select data-sort><option value="featured">Featured</option><option value="new">New in</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
+  </div>
+  <div class="wrap pgrid" data-grid></div>
+</main>
+<div data-footer></div>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var L = window.LAIV, q = new URLSearchParams(location.search), cat = q.get('c') || 'All', sort = q.get('sort') || 'featured';
+  var cats = ['All', 'T-shirts', 'Sweatshirts', 'Hoodies', 'Bottoms'];
+  var chips = document.querySelector('[data-chips]'), sel = document.querySelector('[data-sort]');
+  sel.value = sort;
+  function draw() {
+    chips.innerHTML = cats.map(function (c) { return '<button class="' + (c === cat ? 'on' : '') + '" data-c="' + c + '">' + c + '</button>'; }).join('');
+    var list = L.CAT.filter(function (p) { return cat === 'All' || p.cat === cat; }).slice();
+    if (sort === 'low') list.sort(function (a, b) { return a.price - b.price; });
+    if (sort === 'high') list.sort(function (a, b) { return b.price - a.price; });
+    if (sort === 'new') list.sort(function (a, b) { return (b.badge === 'New') - (a.badge === 'New'); });
+    document.querySelector('[data-grid]').innerHTML = list.map(L.card).join('');
+    document.querySelector("[data-total]").textContent = list.length;
+    document.querySelector('[data-title]').textContent = cat === 'All' ? (sort === 'new' ? 'New in' : 'Shop all') : cat;
+    var qs = [];
+    if (cat !== 'All') qs.push('c=' + encodeURIComponent(cat));
+    if (sort !== 'featured') qs.push('sort=' + sort);
+    history.replaceState(null, '', 'shop.html' + (qs.length ? '?' + qs.join('&') : ''));
+  }
+  chips.addEventListener('click', function (e) { var b = e.target.closest('[data-c]'); if (b) { cat = b.getAttribute('data-c'); draw(); } });
+  sel.addEventListener('change', function () { sort = sel.value; draw(); });
+  draw();
+})();
+</script>
+</body>
+</html>

@@ -3,110 +3,159 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Laivestyle</title>
-<meta name="description" content="Laivestyle. Everything under the light. Drop 01 — 05.12.26.">
-<meta name="theme-color" content="#000000">
-<meta property="og:title" content="Laivestyle">
+<title>Laivestyle — Everything Under The Light</title>
+<meta name="description" content="Laivestyle. Clothing made in small runs, released in drops. Shop Drop 01: oversized logo tees, back print hoodies, crewnecks and graffiti joggers.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:title" content="Laivestyle — Everything Under The Light">
 <meta property="og:description" content="Drop 01 — 05.12.26">
-<meta property="og:image" content="assets/img/store-still.jpg">
+<meta property="og:image" content="assets/img/ai/look-clouds.jpg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="locked">
+<body data-page="home">
 
-<div class="enter" id="enter">
-  <video class="enter__bg" src="assets/media/store-idle.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-  <div class="enter__stage">
-    <video id="idle" src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline aria-label="The Laivestyle store"></video>
-    <video class="enter__fly" id="fly" src="assets/media/store-flyin.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+<!-- Intro: the only place with sound -->
+<div class="intro" id="intro" role="dialog" aria-label="Enter Laivestyle">
+  <video class="intro__bg" src="assets/media/store-idle.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="intro__stage">
+    <video src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline aria-label="The Laivestyle store"></video>
+    <video class="intro__fly" id="fly" src="assets/media/store-flyin.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
   </div>
-  <div class="enter__btn">
-    <button data-enter="sound">Enter</button>
-    <button data-enter="quiet">Enter without sound</button>
+  <div class="intro__ui">
+    <button class="btn" data-enter="sound">Enter</button>
+    <button class="quiet" data-enter="quiet">Enter without sound</button>
   </div>
+  <audio id="introMusic" src="assets/media/laivestyle-theme.mp3" preload="auto"></audio>
 </div>
 
-<div class="bar"><span>Drop 01 — 05.12.26 — 18:00 GMT</span><span data-countdown></span></div>
-
-<header class="head" id="head">
-  <nav>
-    <a class="u-hover" href="#shop">Shop</a>
-    <a class="u-hover" href="#store">Store</a>
-    <a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a>
-  </nav>
-  <button class="head__menu" id="menuBtn" aria-expanded="false">Menu</button>
-  <a class="head__logo" href="index.html" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
-  <div class="head__right">
-    <button class="hide-sm u-hover" data-sound>Sound off</button>
-    <button class="u-hover" data-bag>Bag (<span data-count>0</span>)</button>
-  </div>
-</header>
-
-<div class="menu" id="menu">
-  <a href="#shop">Shop</a>
-  <a href="#store">Store</a>
-  <a href="#signup">Early access</a>
-  <div class="small"><button data-sound>Sound off</button><a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
-</div>
+<div data-header></div>
 
 <main>
-  <section class="campaign" aria-label="Drop 01 campaign">
-    <div class="panel side"><img src="assets/img/fitted-tee.jpg" alt="Fitted Logo Tee in charcoal"></div>
-    <div class="panel"><video src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline aria-label="The Laivestyle store above the clouds"></video></div>
-    <div class="panel side"><img src="assets/img/back-print-tee.jpg" alt="Back Print Tee and Graffiti Joggers" style="object-position:center 40%"></div>
-    <div class="campaign__cap"><span>Laivestyle<br>Drop 01</span><a class="u" href="#shop">Shop now</a></div>
+  <!-- Hero: always playing, always muted -->
+  <section class="hero" aria-label="Drop 01">
+    <video class="v-d" data-loop src="assets/media/hero-16x9.mp4" poster="assets/img/hero-poster.jpg" autoplay muted loop playsinline aria-label="Laivestyle Drop 01 campaign film"></video>
+    <video class="v-m" data-loop src="assets/media/hero-9x16.mp4" poster="assets/img/hero-poster-m.jpg" autoplay muted loop playsinline aria-label="Laivestyle Drop 01 campaign film"></video>
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <p class="label" style="margin:0">Drop 01 — Out 05.12.26</p>
+        <h1 class="display h1">Everything<br>under the light</h1>
+        <div class="hero__ctas"><a class="btn btn--solid" href="shop.html">Shop Drop 01</a><a class="btn btn--line" href="lookbook.html">View lookbook</a></div>
+      </div>
+      <div class="count" data-count aria-label="Time until Drop 01">
+        <div><strong data-d>00</strong><span>DAYS</span></div><div><strong data-h>00</strong><span>HRS</span></div><div><strong data-m>00</strong><span>MIN</span></div><div><strong data-s>00</strong><span>SEC</span></div>
+      </div>
+    </div>
   </section>
 
-  <div class="row" id="shop">
-    <div class="filters" role="tablist" aria-label="Filter products">
-      <button class="on" data-filter="all">All</button>
-      <button data-filter="tshirts">T-shirts</button>
-      <button data-filter="sweatshirts">Sweatshirts</button>
-      <button data-filter="hoodies">Hoodies</button>
-      <button data-filter="bottoms">Bottoms</button>
+  <div class="trust">
+    <div><svg class="icon" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Free UK delivery over £75</div>
+    <div><svg class="icon" viewBox="0 0 24 24"><path d="M4 10h11a5 5 0 0 1 0 10H8"/><path d="M8 6l-4 4 4 4"/></svg>Free 30-day returns</div>
+    <div><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Pay in 3 with Klarna</div>
+    <div><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Secure checkout</div>
+  </div>
+
+  <!-- New in slider -->
+  <section class="wrap sec" data-slider>
+    <div class="sec-head"><div><p class="label muted" style="margin:0 0 10px">Drop 01</p><h2 class="display h2">New in</h2></div>
+      <div style="display:flex;gap:16px;align-items:center"><a class="link label" href="shop.html">Shop all</a><div class="arrows"><button data-prev aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button data-next aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div></div>
+    <div class="slider" data-new></div>
+    <div class="progress"><i></i></div>
+  </section>
+
+  <!-- Campaign split -->
+  <section class="wrap sec">
+    <div class="split">
+      <a class="tile" href="product.html?p=back-print-hoodie"><img src="assets/img/ai/look-hoodie.jpg" alt="Back Print Hoodie worn at blue hour" loading="lazy">
+        <div class="tile__txt"><div><p class="label" style="margin:0 0 6px">Bestseller</p><h3 class="display h3">The Back<br>Print Hoodie</h3></div><span class="btn">Shop — £85</span></div></a>
+      <a class="tile" href="product.html?p=oversized-tee-white"><img src="assets/img/ai/look-clouds.jpg" alt="Oversized Logo Tee worn above the clouds" loading="lazy">
+        <div class="tile__txt"><div><p class="label" style="margin:0 0 6px">2 colours</p><h3 class="display h3">The Oversized<br>Logo Tee</h3></div><span class="btn">Shop — £40</span></div></a>
     </div>
-    <span class="muted"><span data-results></span> products</span>
-  </div>
-  <div class="grid grid--4" data-grid></div>
+  </section>
 
-  <div class="row"><span>Shop by category</span></div>
-  <div class="cats">
-    <a href="#shop" data-cat="tshirts"><img src="assets/img/shop/white-tee-2.jpg" alt="" loading="lazy"><span>T-shirts</span></a>
-    <a href="#shop" data-cat="sweatshirts"><img src="assets/img/shop/orange-crew-1.jpg" alt="" loading="lazy"><span>Sweatshirts</span></a>
-    <a href="#shop" data-cat="hoodies"><img src="assets/img/shop/grey-hoodie-1.jpg" alt="" loading="lazy"><span>Hoodies</span></a>
-    <a href="#shop" data-cat="bottoms"><img src="assets/img/joggers.jpg" alt="" loading="lazy"><span>Bottoms</span></a>
-  </div>
+  <!-- Categories -->
+  <section class="wrap sec">
+    <div class="sec-head"><h2 class="display h2">Shop by category</h2></div>
+    <div class="cats4">
+      <a class="tile" href="shop.html?c=T-shirts"><img src="assets/img/ai/studio-white.jpg" alt="" loading="lazy"><div class="tile__txt"><h3 class="display h3">T-shirts</h3></div></a>
+      <a class="tile" href="shop.html?c=Sweatshirts"><img src="assets/img/ai/look-crew.jpg" alt="" loading="lazy" style="object-position:30% 50%"><div class="tile__txt"><h3 class="display h3">Sweatshirts</h3></div></a>
+      <a class="tile" href="shop.html?c=Hoodies"><img src="assets/img/ai/studio-hoodie.jpg" alt="" loading="lazy"><div class="tile__txt"><h3 class="display h3">Hoodies</h3></div></a>
+      <a class="tile" href="shop.html?c=Bottoms"><img src="assets/img/joggers.jpg" alt="" loading="lazy"><div class="tile__txt"><h3 class="display h3">Bottoms</h3></div></a>
+    </div>
+  </section>
 
-  <section class="store" id="store" aria-label="The store">
-    <div><video src="assets/media/store-interior.mp4" poster="assets/img/store-interior.jpg" autoplay muted loop playsinline aria-label="Inside the Laivestyle store"></video><span class="store__cap">The store</span></div>
-    <div><img src="assets/img/store-interior.jpg" alt="Laivestyle store interior" loading="lazy" style="object-position:center 70%"><span class="store__cap">Opens 05.12.26</span></div>
+  <!-- The world -->
+  <section class="world">
+    <div class="world__media"><video data-loop src="assets/media/store-idle.mp4" poster="assets/img/store-still.jpg" autoplay muted loop playsinline aria-label="The Laivestyle store floating above the clouds"></video></div>
+    <div class="world__txt">
+      <p class="label muted" style="margin:0">The world</p>
+      <h2 class="display h2">A store above the clouds</h2>
+      <p>Every Laivestyle drop opens in its own world: a store floating over pink cloud, lit by a single hand. The hand is the mark you'll find on every piece. Light lands where it wants, and so do we.</p>
+      <div><a class="btn btn--line" href="about.html">Our story</a></div>
+    </div>
+  </section>
+
+  <!-- Bestsellers slider -->
+  <section class="wrap sec" data-slider>
+    <div class="sec-head"><div><p class="label muted" style="margin:0 0 10px">Most wanted</p><h2 class="display h2">Bestsellers</h2></div>
+      <div class="arrows"><button data-prev aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button data-next aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+    <div class="slider" data-best></div>
+    <div class="progress"><i></i></div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="paper reviews" data-slider>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="label muted" style="margin:0 0 10px">Reviews</p><h2 class="display h2">What people are saying</h2>
+          <div class="rsum" style="margin-top:14px"><span data-avg-stars></span><span style="font-size:13px">Reviews appear here after Drop 01</span><span class="sample">Sample</span></div></div>
+        <div class="arrows"><button data-prev aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button data-next aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+      </div>
+      <div class="slider" data-reviews style="grid-auto-columns:calc((100% - 2*14px)/3)"></div>
+      <div class="progress"><i></i></div>
+      <p class="rnote muted">The reviews shown are sample layouts for this concept. They will be replaced with verified customer reviews once Drop 01 ships.</p>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="wrap sec">
+    <div class="sec-head" style="flex-wrap:wrap"><div><p class="label muted" style="margin:0 0 10px">Follow the light</p><h2 class="display h2">@laivestyle_</h2></div>
+      <div class="handles"><a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</a><a href="#"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5.2"/></svg>TikTok</a></div></div>
+    <div class="social-grid">
+      <a class="post tall" href="#"><video data-loop src="assets/media/store-flyin.mp4" autoplay muted loop playsinline aria-label="TikTok: entering the Laivestyle store"></video><span class="plat"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5.2"/></svg></span><span class="ov">Watch on TikTok</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/ig-logo.jpg" alt="Laivestyle logo post" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/fitted-tee.jpg" alt="Fitted Logo Tee by the river" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/ai/look-crew.jpg" alt="Logo Crewneck on a rooftop" loading="lazy" style="object-position:30% 50%"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post tall" href="#"><video data-loop src="assets/media/hero-9x16.mp4" autoplay muted loop playsinline aria-label="TikTok: Drop 01 campaign"></video><span class="plat"><svg class="icon" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5.2"/></svg></span><span class="ov">Watch on TikTok</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/ai/look-water.jpg" alt="Fitted Logo Tee at golden hour" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/back-print-tee.jpg" alt="Back Print Tee by the sea" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/ai/studio-black.jpg" alt="Oversized Logo Tee in black" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+      <a class="post" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener"><img src="assets/img/store-still.jpg" alt="The Laivestyle store" loading="lazy"><span class="plat"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span class="ov">View post</span></a>
+    </div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="signup" id="signup">
-    <p>Early access to Drop 01</p>
-    <form id="signupForm"><input type="email" name="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Submit</button></form>
-    <div class="done">Thank you. You're on the list.</div>
-  </div>
-  <div><p class="muted">Help</p><a class="u-hover" href="#">Shipping</a><a class="u-hover" href="#">Returns</a><a class="u-hover" href="#">Size guide</a><a class="u-hover" href="#">Contact</a></div>
-  <div><p class="muted">Follow</p><a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
-  <div class="foot__end"><span>© 2026 Laivestyle</span><span>Site by <a class="u" href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a></span></div>
-</footer>
+<div data-footer></div>
 
-<div class="shade" data-bag-close></div>
-<aside class="bag" aria-label="Bag">
-  <div class="bag__top"><span>Bag (<span data-count>0</span>)</span><button class="u-hover" data-bag-close>Close</button></div>
-  <div class="bag__body" data-bag-items></div>
-  <div class="bag__foot" data-bag-foot>
-    <div class="bag__row"><span>Subtotal</span><span data-subtotal>£0.00</span></div>
-    <div class="bag__row muted"><span>Shipping</span><span>Calculated at checkout</span></div>
-    <button class="cta cta--dark" data-checkout>Checkout</button>
-    <p class="muted" data-checkout-msg></p>
-  </div>
-</aside>
-
-<audio id="theme" src="assets/media/laivestyle-theme.mp3" loop preload="auto"></audio>
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var L = window.LAIV, $ = function (s) { return document.querySelector(s); };
+  $('[data-new]').innerHTML = L.CAT.filter(function (p) { return p.id !== 'logo-tee-grey'; }).map(L.card).join('');
+  $('[data-best]').innerHTML = ['back-print-hoodie', 'graffiti-joggers', 'oversized-tee-black', 'fitted-tee-charcoal', 'logo-crewneck-cream', 'oversized-tee-white'].map(function (id) { return L.card(L.byId[id]); }).join('');
+  $('[data-avg-stars]').innerHTML = L.stars(5);
+  $('[data-reviews]').innerHTML = L.REVIEWS.map(function (r) {
+    var p = L.byId[r.p];
+    return '<article class="rcard"><div style="display:flex;justify-content:space-between;align-items:center">' + L.stars(r.r) + '<span class="sample">Sample</span></div><h4>' + L.esc(r.t) + '</h4><p>' + L.esc(r.b) + '</p>' +
+      '<footer><span>' + L.esc(r.n) + ' · Size ' + r.s + ' · ' + r.fit + '</span></footer>' +
+      '<a class="item" href="product.html?p=' + p.id + '"><img src="' + p.imgs[0] + '" alt="">' + L.esc(p.name) + ' — ' + L.esc(p.colour) + '</a></article>';
+  }).join('');
+  document.querySelectorAll('[data-slider]').forEach(L.slider);
+  var target = Date.parse('2026-12-05T18:00:00Z'), pad = function (n) { return String(n).padStart(2, '0'); };
+  var tick = function () { var d = Math.max(0, target - Date.now()); $('[data-d]').textContent = pad(Math.floor(d / 864e5)); $('[data-h]').textContent = pad(Math.floor(d / 36e5) % 24); $('[data-m]').textContent = pad(Math.floor(d / 6e4) % 60); $('[data-s]').textContent = pad(Math.floor(d / 1e3) % 60); };
+  tick(); setInterval(tick, 1000);
+})();
+</script>
 </body>
 </html>

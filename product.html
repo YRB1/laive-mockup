@@ -4,87 +4,107 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Laivestyle</title>
-<meta name="theme-color" content="#000000">
+<meta name="description" content="Laivestyle Drop 01.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:image" content="assets/img/ai/look-clouds.jpg">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-<header class="head solid" id="head" style="top:0">
-  <nav>
-    <a class="u-hover" href="index.html#shop">Shop</a>
-    <a class="u-hover" href="index.html#store">Store</a>
-    <a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a>
-  </nav>
-  <button class="head__menu" id="menuBtn" aria-expanded="false">Menu</button>
-  <a class="head__logo" href="index.html" aria-label="Laivestyle home"><img src="assets/img/logo-white.png" alt="Laivestyle"></a>
-  <div class="head__right">
-    <button class="hide-sm u-hover" data-sound>Sound off</button>
-    <button class="u-hover" data-bag>Bag (<span data-count>0</span>)</button>
-  </div>
-</header>
-
-<div class="menu" id="menu">
-  <a href="index.html#shop">Shop</a>
-  <a href="index.html#store">Store</a>
-  <a href="index.html#signup">Early access</a>
-  <div class="small"><button data-sound>Sound off</button><a href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
-</div>
-
-<main class="pdp" id="pdp">
-  <div class="pdp__imgs" data-imgs></div>
-  <div class="pdp__info">
-    <div>
-      <div class="pdp__name" data-name>Fitted Logo Tee</div>
-      <div data-price></div>
-    </div>
-    <div>
-      <p style="margin:0 0 8px">Colour: <span data-colour-name></span></p>
-      <div class="opts" data-colours></div>
-    </div>
-    <div>
-      <p style="margin:0 0 8px">Size</p>
-      <div class="opts" data-sizes></div>
-    </div>
-    <div>
-      <button class="cta" id="addBtn">Add to bag</button>
-      <p class="msg muted" id="msg">Pre-order. Ships after Drop 01 — 05.12.26.</p>
-    </div>
-    <div class="acc">
-      <details open><summary>Description</summary><p data-desc></p></details>
-      <details><summary>Size &amp; fit</summary><p>Size guide to follow.</p></details>
-      <details><summary>Shipping &amp; returns</summary><p>UK and international shipping. Details to follow before Drop 01.</p></details>
+<body data-page="product">
+<div data-header></div>
+<main class="wrap">
+  <p class="crumbs" data-crumbs></p>
+  <div class="pdp">
+    <div><div class="gal" data-gal></div><div class="gal-dots" data-gdots></div></div>
+    <div class="buy">
+      <div><span class="badge" data-badge style="position:static;display:inline-block;margin-bottom:12px"></span>
+        <h1 class="display h3" data-name style="font-size:clamp(26px,2.6vw,38px)"></h1>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:10px"><span data-pstars></span><a class="link" href="#reviews" style="font-size:12px">Reviews</a><span class="sample">Sample</span></div></div>
+      <div><div class="buy__price" data-price></div><div class="klarna">or 3 interest-free payments of <b data-k></b> with <b>Klarna</b></div></div>
+      <div><div class="opt-head"><span>Colour: <span data-colour style="font-weight:400"></span></span></div><div class="sw" data-sw></div></div>
+      <div><div class="opt-head"><span>Size: <span data-size style="font-weight:400">Select</span></span><button class="link" data-open="sizeguide" style="font-size:12px;letter-spacing:0;text-transform:none">Size guide</button></div><div class="sizes" data-sizes></div>
+        <p class="muted" style="font-size:12px;margin:10px 0 0" data-fit></p></div>
+      <div><div class="buy__row"><button class="btn btn--solid" data-add>Select a size</button><button class="wish" data-wishbtn aria-label="Save to wishlist"><svg class="icon" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div>
+        <p data-msg style="margin:10px 0 0;font-size:12px;min-height:16px;color:var(--pink)"></p></div>
+      <div class="perks">
+        <div><svg class="icon" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Free UK delivery on orders over £75</div>
+        <div><svg class="icon" viewBox="0 0 24 24"><path d="M4 10h11a5 5 0 0 1 0 10H8"/><path d="M8 6l-4 4 4 4"/></svg>Free 30-day returns</div>
+        <div><svg class="icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pre-order — ships after Drop 01, 05.12.26</div>
+      </div>
+      <div class="acc">
+        <details open><summary>Description</summary><div class="body" data-desc></div></details>
+        <details><summary>Details &amp; care</summary><div class="body"><ul data-details></ul></div></details>
+        <details><summary>Delivery &amp; returns</summary><div class="body">UK standard delivery 2–4 working days (£3.95, free over £75). UK next day £5.95. International delivery available. Free returns within 30 days — see our <a class="link" href="faq.html#returns">returns policy</a>.</div></details>
+      </div>
     </div>
   </div>
+
+  <section class="sec" data-slider>
+    <div class="sec-head"><h2 class="display h2">Complete the look</h2><div class="arrows"><button data-prev aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button data-next aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+    <div class="slider" data-also></div><div class="progress"><i></i></div>
+  </section>
+
+  <section class="sec" id="reviews">
+    <div class="sec-head" style="flex-wrap:wrap"><div><h2 class="display h2">Reviews</h2><div class="rsum dark" style="margin-top:12px"><span data-rstars></span><span class="muted" style="font-size:13px">Verified reviews appear here after Drop 01</span><span class="sample">Sample</span></div></div>
+      <button class="btn btn--line" data-write>Write a review</button></div>
+    <div class="values" data-rlist></div>
+  </section>
+
+  <section class="sec" data-viewed-wrap style="display:none" data-slider>
+    <div class="sec-head"><h2 class="display h2">Recently viewed</h2><div class="arrows"><button data-prev aria-label="Previous"><svg class="icon" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button data-next aria-label="Next"><svg class="icon" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+    <div class="slider" data-viewed></div><div class="progress"><i></i></div>
+  </section>
 </main>
+<div class="sticky-add" data-sticky><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" data-sname></div><div class="muted" style="font-size:12px" data-sprice></div></div><button class="btn btn--solid" data-sadd style="height:46px">Add to bag</button></div>
 
-<div class="row"><span>You may also like</span></div>
-<div class="grid grid--4" data-also></div>
-
-<footer class="foot">
-  <div class="signup" id="signup">
-    <p>Early access to Drop 01</p>
-    <form id="signupForm"><input type="email" name="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Submit</button></form>
-    <div class="done">Thank you. You're on the list.</div>
-  </div>
-  <div><p class="muted">Help</p><a class="u-hover" href="#">Shipping</a><a class="u-hover" href="#">Returns</a><a class="u-hover" href="#">Size guide</a><a class="u-hover" href="#">Contact</a></div>
-  <div><p class="muted">Follow</p><a class="u-hover" href="https://instagram.com/laivestyle_" target="_blank" rel="noopener">Instagram</a></div>
-  <div class="foot__end"><span>© 2026 Laivestyle</span><span>Site by <a class="u" href="https://yrbnova.com" target="_blank" rel="noopener">YRB Nova</a></span></div>
-</footer>
-
-<div class="shade" data-bag-close></div>
-<aside class="bag" aria-label="Bag">
-  <div class="bag__top"><span>Bag (<span data-count>0</span>)</span><button class="u-hover" data-bag-close>Close</button></div>
-  <div class="bag__body" data-bag-items></div>
-  <div class="bag__foot" data-bag-foot>
-    <div class="bag__row"><span>Subtotal</span><span data-subtotal>£0.00</span></div>
-    <div class="bag__row muted"><span>Shipping</span><span>Calculated at checkout</span></div>
-    <button class="cta cta--dark" data-checkout>Checkout</button>
-    <p class="muted" data-checkout-msg></p>
-  </div>
-</aside>
-
-<audio id="theme" src="assets/media/laivestyle-theme.mp3" loop preload="auto"></audio>
+<div data-footer></div>
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var L = window.LAIV, $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var p = L.byId[new URLSearchParams(location.search).get('p')] || L.CAT[0], size = null;
+  L.viewed(p.id);
+  document.title = p.name + ' — ' + p.colour + ' — Laivestyle';
+  $('[data-crumbs]').innerHTML = '<a href="index.html">Home</a> / <a href="shop.html?c=' + encodeURIComponent(p.cat) + '">' + p.cat + '</a> / ' + L.esc(p.name);
+  if (p.badge) $('[data-badge]').textContent = p.badge; else $('[data-badge]').remove();
+  $('[data-name]').textContent = p.name;
+  $('[data-pstars]').innerHTML = L.stars(5); $('[data-rstars]').innerHTML = L.stars(5);
+  $('[data-price]').textContent = L.gbp(p.price); $('[data-k]').textContent = L.gbp(p.price / 3);
+  $('[data-colour]').textContent = p.colour;
+  $('[data-desc]').textContent = p.desc;
+  $('[data-details]').innerHTML = p.details.map(function (d) { return '<li>' + L.esc(d) + '</li>'; }).join('');
+  $('[data-fit]').textContent = /Oversized/.test(p.name) ? 'Oversized fit. Size down for a regular fit.' : (/Fitted/.test(p.name) ? 'Fitted cut. Size up for a relaxed fit.' : 'True to size.');
+  $('[data-sname]').textContent = p.name + ' — ' + p.colour; $('[data-sprice]').textContent = L.gbp(p.price);
+  $('[data-gal]').innerHTML = p.imgs.map(function (s, i) { return '<div><img src="' + s + '" alt="' + (i ? '' : L.esc(p.name + ' — ' + p.colour)) + '"' + (i > 1 ? ' loading="lazy"' : '') + '></div>'; }).join('');
+  $('[data-gdots]').innerHTML = p.imgs.map(function (s, i) { return '<i class="' + (i ? '' : 'on') + '"></i>'; }).join('');
+  var gal = $('[data-gal]');
+  gal.addEventListener('scroll', function () { var i = Math.round(gal.scrollLeft / gal.clientWidth); $$('[data-gdots] i').forEach(function (d, j) { d.classList.toggle('on', i === j); }); }, { passive: true });
+  $('[data-sw]').innerHTML = L.CAT.filter(function (q) { return q.group === p.group; }).map(function (q) { return '<a href="product.html?p=' + q.id + '" class="' + (q.id === p.id ? 'on' : '') + '" title="' + L.esc(q.colour) + '" aria-label="' + L.esc(q.colour) + '"><img src="' + q.imgs[0] + '" alt=""></a>'; }).join('');
+  var low = p.low || [];
+  $('[data-sizes]').innerHTML = L.sizesFor(p).map(function (s) { return '<button class="size' + (low.indexOf(s) > -1 ? ' low' : '') + '" data-s="' + s + '"' + (low.indexOf(s) > -1 ? ' title="Low stock"' : '') + '>' + s + '</button>'; }).join('');
+  var addBtn = $('[data-add]'), msg = $('[data-msg]');
+  $('[data-sizes]').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-s]'); if (!b) return; size = b.getAttribute('data-s');
+    $$('.size').forEach(function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); });
+    $('[data-size]').textContent = size; addBtn.textContent = 'Add to bag — ' + L.gbp(p.price);
+    msg.textContent = low.indexOf(size) > -1 ? 'Only a few left in ' + size : '';
+  });
+  var add = function () { if (!size) { msg.textContent = 'Please select a size'; $('[data-sizes]').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; } L.addToBag(p.id, size, 1); };
+  addBtn.addEventListener('click', add); $('[data-sadd]').addEventListener('click', add);
+  var wb = $('[data-wishbtn]'), sw = function () { wb.classList.toggle('on', L.isWished(p.id)); };
+  wb.addEventListener('click', function () { L.toggleWish(p.id); sw(); }); sw();
+  var st = $('[data-sticky]');
+  window.addEventListener('scroll', function () { st.classList.toggle('on', addBtn.getBoundingClientRect().bottom < 0); }, { passive: true });
+  $('[data-also]').innerHTML = L.CAT.filter(function (q) { return q.group !== p.group; }).slice(0, 8).map(L.card).join('');
+  var rs = L.REVIEWS.filter(function (r) { return r.p === p.id; }).concat(L.REVIEWS.filter(function (r) { return r.p !== p.id; }));
+  $('[data-rlist]').innerHTML = rs.slice(0, 3).map(function (r) { return '<div><div style="display:flex;justify-content:space-between">' + L.stars(r.r) + '<span class="sample">Sample</span></div><h4 style="margin:0">' + L.esc(r.t) + '</h4><p>' + L.esc(r.b) + '</p><span class="muted" style="font-size:12px">' + L.esc(r.n) + ' · Size ' + r.s + ' · ' + r.fit + '</span></div>'; }).join('');
+  $('[data-write]').addEventListener('click', function () { this.textContent = 'Reviews open after Drop 01'; });
+  var v = L.getViewed().filter(function (id) { return id !== p.id && L.byId[id]; });
+  if (v.length) { document.querySelector('[data-viewed-wrap]').style.display = ''; $('[data-viewed]').innerHTML = v.map(function (id) { return L.card(L.byId[id]); }).join(''); }
+  document.querySelectorAll('[data-slider]').forEach(L.slider);
+})();
+</script>
 </body>
 </html>
